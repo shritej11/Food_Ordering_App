@@ -1,0 +1,30 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This is React",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shritej11/React.git"
+  },
+  "keywords": [],
+  "author": "Shritej dhere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shritej11/React/issues"
+  },
+  "homepage": "https://github.com/shritej11/React#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.28.2"
+  }
+}
