@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/shimmer";
 import { Link } from "react-router-dom";
-
+import UserOnlineStatus from "./components/UserOnlineStatus";
 const Header = () => {
     const [btnNameReact, setbtnNameReact] = useState("Login");
     return (
@@ -21,13 +21,13 @@ const Header = () => {
             <div className="nav-items">
                 <ul>
                     <li>
-                        <Link to = "http://localhost:1234/  "> Home </Link>
+                        <Link to="http://localhost:1234/  "> Home </Link>
                     </li>
                     <li>
-                       <Link to = "/About" > About Us </Link> 
-                    </li> 
+                        <Link to="/About" > About Us </Link>
+                    </li>
                     <li>
-                        <Link to = "/Contact" > Contact Us </Link>
+                        <Link to="/Contact" > Contact Us </Link>
                     </li>
                     <li>Cart</li>
                     <button
@@ -68,9 +68,16 @@ const Body = () => {
 
     };
 
-    if(allRestaurants.length === 0 ){
+    const onlineStatus = UserOnlineStatus();
+    if (onlineStatus === false) 
+        return 
+            <h1>Looks like ur offline</h1>
+    ;
+
+    if (allRestaurants.length === 0) {
         return <h1><Shimmer /> </h1>
     }
+
 
     return (
         <div className="body">
@@ -110,7 +117,7 @@ const Body = () => {
 
             <div className="res-container">
                 {filteredRestaurants.map((restaurant) => (
-                   <Link  key={restaurant.info.id} to = {"/restaurants/" + restaurant.info.id }> <div key={restaurant.info.id} className="res-card">
+                    <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}> <div key={restaurant.info.id} className="res-card">
 
                         <img
                             className="restImg"
@@ -144,37 +151,37 @@ const Applayout = () => {
 };
 
 const appRouter = createBrowserRouter([
-   {
-    path: "/",
-    element:<Applayout/>,
-    children : [
-        {
-            path: "/",
-            element: <Body/>
-        },
-        {
-            path: "/Home",
-            element: <Home/>
-        },
-        {
-            path: "/about",
-            element: <About/>
-        },
-        {
-            path: "/Contact",
-            element: <Contact/>
-        },
-        
-        {
-            path: "/restaurants/:id",
-            element: <RestaurantMenu />,
-        },
+    {
+        path: "/",
+        element: <Applayout />,
+        children: [
+            {
+                path: "/",
+                element: <Body />
+            },
+            {
+                path: "/Home",
+                element: <Home />
+            },
+            {
+                path: "/about",
+                element: <About />
+            },
+            {
+                path: "/Contact",
+                element: <Contact />
+            },
 
-    ],
-    errorElement: <Error />,
-   },
-  
+            {
+                path: "/restaurants/:id",
+                element: <RestaurantMenu />,
+            },
+
+        ],
+        errorElement: <Error />,
+    },
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);
