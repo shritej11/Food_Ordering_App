@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import myImage from '/Images/logo.png';
 import { createBrowserRouter, Outlet, RouterProvider, Link } from "react-router-dom";
@@ -8,10 +8,14 @@ import Home from "./components/Home";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Body from "./components/Body";
+import UserContext from "./utils/Context";
 
 
 const Header = () => {
     const [btnNameReact, setbtnNameReact] = useState("Login");
+
+    const data = useContext(UserContext);
+    console.log(data)
 
     return (
         <div className="flex justify-between items-center bg-red-500 p-4 shadow-md">
