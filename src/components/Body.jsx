@@ -10,7 +10,7 @@ const Body = () => {
     const [allRestaurants, setListOfRestaurant] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
-    
+
 
     useEffect(() => {
         fetchData();
@@ -27,7 +27,7 @@ const Body = () => {
         setListOfRestaurant(restaurants);
         setFilteredRestaurants(restaurants);
     };
-    
+
     const onlineStatus = UserOnlineStatus();
 
     if (onlineStatus === false) return <h1>Looks like you're offline</h1>;
@@ -37,18 +37,29 @@ const Body = () => {
     }
 
     return (
-        <div className="bg-gray-100 p-4">
-            <div className="bg-red-500 p-3 rounded-lg mb-4">
+        <div className="bg-gray-100 p-1">
+            <div className="bg-red-500 p-1 rounded-lg mb-4">
+                <div className="text-center p-7">
+                    <div className="text-5xl text-white font-sans font-bold">
+                        Order food & deserts.Discover
+                    </div>
+
+                    <div className="text-5xl text-white font-sans font-bold">
+                        the best restaurants.
+                    </div>
+                </div>
+
                 <div className="flex justify-center items-center space-x-4">
-                    <input 
+
+                    <input
                         type="text"
                         placeholder="Search for Restaurants or Cuisines"
-                        className="  bg-white w-1/2 p-2 rounded-full border border-white focus:outline-none focus:ring-2 focus:ring-[#FF6F00]"
+                        className="mt-10  bg-white w-1/2 p-3 rounded-2xl border border-white focus:outline-none focus:ring-2 focus:ring-[#FF6F00]"
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />
                     <button
-                        className="bg-white text-white p-2 rounded-full hover:bg-[#e3e2df] transition"
+                        className="mt-10 bg-white text-white p-1 rounded-full hover:bg-[#e3e2df] transition"
                         onClick={() => {
                             const filteredList = allRestaurants.filter(
                                 (res) =>
@@ -59,14 +70,14 @@ const Body = () => {
                         }}
                     >
                         <img
-                            className=" bg-white w-6 h-6"
+                            className=" bg-white m-2 w-6 h-6"
                             src="https://cdn3.iconfinder.com/data/icons/feather-5/24/search-512.png"
                             alt="search"
                         />
                     </button>
                 </div>
                 <button
-                    className="mt-4 bg-[#FF9800] text-white px-5 py-2 rounded-md hover:bg-[#FF6F00] transition"
+                    className="mt-4 bg-[#FF9800] text-white px-4 py-1 rounded-md hover:bg-[#FF6F00] transition"
                     onClick={() => {
                         const filteredList = allRestaurants.filter((res) => res.info.avgRating > 4.5);
                         setFilteredRestaurants(filteredList);
@@ -82,7 +93,7 @@ const Body = () => {
                         key={restaurant.info.id}
                         to={"/restaurants/" + restaurant.info.id}
                     >
-                        <div className="bg-white rounded-lg hover:scale-110 transition-transform duration-300 shadow-lg p-4 text-center">
+                        <div className="bg-white rounded-lg hover:scale-110 transition-transform duration-300 shadow-lg p-3 text-center">
                             <img
                                 className="w-full h-40 object-cover rounded-lg"
                                 src={

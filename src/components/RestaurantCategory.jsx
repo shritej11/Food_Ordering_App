@@ -13,14 +13,14 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
     return (
         <div className="">
         {
-            <div className="w-6/12 mx-auto my-4  bg-grey-50 shadow-lg p-4">
+            <div className="w-6/12 mx-auto my-3  border-b-5 border-gray-200  p-3">
                 
                 <div 
-                className=" cursor-pointer P-4 flex justify-between text-center"
+                className=" cursor-pointer P-3 flex justify-between text-center"
                 onClick =  {handleClick}
                 >
                 
-                <span className="font-bold text-lg">
+                <span className="font-bold text-md">
                     {data.title } ({data.itemCards.length})
                 </span>
                

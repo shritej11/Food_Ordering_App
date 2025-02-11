@@ -9,33 +9,43 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Body from "./components/Body";
 import UserContext from "./utils/Context";
-
+import { useSelector } from "react-redux";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Header = () => {
     const [btnNameReact, setbtnNameReact] = useState("Login");
 
     const data = useContext(UserContext);
-    console.log(data)
+
+    //Subscribing to the store using a Selector
+    const cartItems = useSelector((store) => store.cart.items); 
+    
 
     return (
-        <div className="flex justify-between items-center bg-red-500 p-4 shadow-md">
+        <div className="flex justify-between items-center bg-red-500 p-1 shadow-md">
             <div>
-                <img className="w-28" src={myImage} alt="logo" />
+                <img className="ml-20 w-40" src={myImage} alt="logo" />
             </div>
             <div className="flex items-center">
                 <ul className="flex space-x-8">
-                    <li className="text-white text-lg font-semibold">
+                    <li className="text-white text-md font-semibold ">
                         <Link to="/">Home</Link>
                     </li>
-                    <li className="text-white text-lg font-semibold">
+                    <li className="text-white text-md font-semibold">
                         <Link to="/About">About Us</Link>
                     </li>
-                    <li className="text-white text-lg font-semibold">
+                    <li className="text-white text-md font-semibold">
                         <Link to="/Contact">Contact Us</Link>
                     </li>
-                    <li className="text-white text-lg font-semibold">Cart</li>
+
+                    <li className="text-white text-md font-semibold">
+                    <Link to="/cart"> Cart({cartItems.length})</Link>   
+                    </li>
+                     
                     <button
-                        className="px-5 py-2 bg-[#FFCC00] text-white text-lg font-semibold rounded-md hover:bg-[#FF9800] transition"
+                        className="px-4 py-1 bg-[#FFCC00] text-white text-lg font-semibold rounded-md hover:bg-[#FF9800] transition"
                         onClick={() => {
                             setbtnNameReact(btnNameReact === "Login" ? "Logout" : "Login");
                         }}
@@ -51,10 +61,12 @@ const Header = () => {
 
 const Applayout = () => {
     return (
+        <Provider store = {appStore}>
         <div className="app">
             <Header />
             <Outlet />
         </div>
+        </Provider>
     );
 };
 
@@ -82,6 +94,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurants/:id",
                 element: <RestaurantMenu />,
+            },
+            {
+                path: "/cart",
+                element: <Cart />,
             },
         ],
         errorElement: <Error />,
