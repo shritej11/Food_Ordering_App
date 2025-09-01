@@ -33,6 +33,7 @@
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.30.0",
-    "react-toastify": "^11.0.3"
+    "react-toastify": "^11.0.3",
+    "shimmer": "^1.2.1"
   }
 }
