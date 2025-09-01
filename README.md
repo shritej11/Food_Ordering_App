@@ -5,3 +5,5 @@
 -Slice(cartSlice)
 -dispatch(action)
 -Selector
+
+Use npm start to run
