@@ -26,7 +26,7 @@ const Cart = () => {
     }, 0);
 
     const deliveryFee = 40;
-    const gst = totalAmount * 0.18;
+    const gst = totalAmount * 0.08;
     const cancellationFee = totalAmount * 0.75;
     const totalToPay = totalAmount + deliveryFee + gst;
 
@@ -60,7 +60,7 @@ const Cart = () => {
                             <div className="flex justify-between items-center mb-6">
                                 <h2 className="text-2xl font-bold text-gray-800">Your Cart</h2>
                                 <button
-                                    className="text-sm bg-red-400 hover:bg-red-600 text-white px-4 py-1.5 rounded-full shadow"
+                                    className="text-sm bg-red-500 hover:bg-red-600 text-white px-4 py-1.5 rounded-full shadow"
                                     onClick={handleClearCart}
                                 >
                                     Clear Cart
@@ -71,16 +71,25 @@ const Cart = () => {
                                 {cartItems.map((item) => (
                                     <div
                                         key={item.card.info.id}
-                                        className="flex items-start gap-4 border-b pb-4"
+                                        className="flex items-start gap-4 border-b pb-4 relative"
                                     >
+                                        {/* Red Cross Button for Remove */}
+                                        <div className="">
+                                        <button
+                                            onClick={() => handleRemoveItem(item.card.info.id)}
+                                            className="absolute -top-4 right-2 text-white text-2xl z-10 bg-gradient-to-r from-black to bg-gray-500 px-1.5 py-0.5 rounded shadow-lg hover:bg-gradient-to-l"
+                                        >
+                                            &times;
+                                        </button>
+                                        </div>
+
                                         <div className="flex-grow">
                                             <h3 className="font-semibold text-gray-800">
                                                 {item.card.info.name}
                                             </h3>
                                             <p className="text-gray-500 text-sm mt-1">
                                                 ₹
-                                                {(item.card.info.price || item.card.info.defaultPrice) /
-                                                    100}
+                                                {(item.card.info.price || item.card.info.defaultPrice) / 100}
                                             </p>
                                             {item.card.info.description && (
                                                 <p className="text-gray-400 text-xs mt-2">
@@ -103,12 +112,6 @@ const Cart = () => {
                                                     onClick={() => handleIncrement(item.card.info.id)}
                                                 >
                                                     +
-                                                </button>
-                                                <button
-                                                    onClick={() => handleRemoveItem(item.card.info.id)}
-                                                    className="text-red-500 text-sm mt-2 hover:underline"
-                                                >
-                                                    Remove
                                                 </button>
                                             </div>
                                         </div>

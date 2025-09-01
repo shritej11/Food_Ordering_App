@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserOnlineStatus from "./UserOnlineStatus";
-import Shimmer from "./shimmer";
+import Shimmer from "./Shimmer";
 import RestaurantMenu from "./RestaurantMenu";
 
 

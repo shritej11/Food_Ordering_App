@@ -20,7 +20,7 @@ return (
        onClick={() => 
                window.open("https://github.com/shritej11", "_blank")
             }>
-                <img className="w-30 p-3" src={GithubImg } alt="" />
+                <img className="w-30 p-3" src={ GithubImg } alt="" />
         </button>
         
        </div>
@@ -30,7 +30,7 @@ return (
        onClick={() => 
                window.open("https://www.instagram.com/shritej.dhere/", "_blank")
             }>
-                <img className="w-30 p-3" src={InstaImg} alt="" />
+                <img className="w-30 p-3" src={ InstaImg } alt="" />
         </button>
         
        </div>
