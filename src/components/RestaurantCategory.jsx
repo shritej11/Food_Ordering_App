@@ -9,7 +9,7 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
        setShowIndex();
     }
 
-    console.log(data);
+    //console.log(data);
     return (
         <div className="">
         {

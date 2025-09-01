@@ -46,12 +46,12 @@ const ItemList = ({ items }) => {
                             </div>
                         </div>
                         <div className="w-3/12 ">
-                            <div className="hover:bg-gray-200 w-20 text-center border-2 border-gray-200 absolute font-bold p-1  bg-white text-green-600 mx-13 rounded-lg">
+                            <div className="cursor-pointer hover:bg-gray-200 w-20 text-center border-2 border-gray-200 absolute font-semibold p-1  bg-green-50 text-green-500 mx-13 rounded-lg">
                                 <button 
                                     className=""
                                     onClick={() => handleAddItem(item)}>
 
-                                    ADD
+                                    ADD+
 
                                 </button>
                             </div>
