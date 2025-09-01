@@ -19,12 +19,21 @@
   },
   "homepage": "https://github.com/shritej11/React#readme",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.13.3",
-    "process": "^0.11.10"
+    "postcss": "^8.5.1",
+    "process": "^0.11.10",
+    "tailwindcss": "^4.0.3"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "@tailwindcss/postcss": "^4.0.3",
+    "firebase": "^11.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^6.28.2"
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.30.0",
+    "react-toastify": "^11.0.3",
+    "shimmer": "^1.2.1"
   }
 }
