@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import UserContext from "../utils/Context";
-import myImage from '../../Images/logo.png';
+import logo from '../../Images/logo.png';
 import { Link } from "react-router-dom";
-import shopping_cart from '../../Images/cart.png';
+import cart from '../../Images/cart.png';
 
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex justify-between items-center bg-red-500 p-1 shadow-md">
             <div >
             <Link to="/"> 
-                 <img className="ml-20 w-40" src={myImage} alt="logo" /> 
+                 <img className="ml-20 w-40" src={logo} alt="logo" /> 
             </Link>
                 
             </div>
@@ -37,7 +37,7 @@ const Header = () => {
 
                     <li className="relative flex text-white text-lg font-semibold transition duration-300 hover:text-white  after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-white after:transition-all after:duration-300">
                         <img className="h-6.8 w-7 "
-                            src={shopping_cart}
+                            src={cart}
                             alt=""
                         />
                         <Link to="/cart"> Cart({cartItems.length})</Link>
